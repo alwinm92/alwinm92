@@ -1,0 +1,71 @@
+et-AzResource | Export-CSV "C:\SyncedUserslist.CSV"
+ 
+Install-Module Az.Accounts
+Import-Module Az.Accounts
+Connect-AzAccount
+ 
+Select-AzSubscription -SubscriptionId a8737f2e-8dfe-4a01-9844-94bb870302a4
+Get-AzResourceGroup
+ 
+Get-AzResource
+ 
+Get-AzSubscriptions
+ 
+Connect-AzureAD
+ 
+Get-RdsUserSession
+ 
+Get-AzWvdUserSession -HostName "AVD-BES-DEV-1.buckeye.com"
+ 
+Get-AzDisk | Export-CSV "C:\SyncedUserslist1.CSV"
+ 
+Get-AzDisk | Where-Object {$_.ManagedBy -eq $null} | Export-CSV "C:\SyncedUserslist9.CSV"  ------to get unattached disk list.
+ 
+Select-AzSubscription -SubscriptionId a4f0be24-2fd3-40b8-a96c-8bf44af37ea1
+ 
+ 
+ 
+Connect-AzureAD
+$Subscriptions = Get-AzSubscription
+$resource = ForEach ($Subscription in $Subscriptions) {
+   if($Subscription.State -eq "Enabled"){
+       $void = Set-AzContext -SubscriptionName $Subscription.Name
+       Get-AzResource
+   }
+}
+ 
+ 
+ 
+Install-Module Az.resources
+Import-Module Az.resources
+ 
+Get-AzSubscriptions
+Select-AzSubscription -SubscriptionId a8737f2e-8dfe-4a01-9844-94bb870302a4
+ 
+New-AzResourceGroupDeployment -ResourceGroupName <string> -Templatefile <string.json> -TemplateParameterfile <string.json>
+New-AzResourceGroupDeployment -ResourceGroupName rg-sandbox-testavd-east -Templatefile teststorageaccount.json
+ 
+Microsoft.Subscription/SubscriptionDefinitions/offerType
+ 
+ 
+Install-Module Az.Accounts
+Import-Module Az.Accounts
+Connect-AzAccount
+ 
+Select-AzSubscription -SubscriptionId a8737f2e-8dfe-4a01-9844-94bb870302a4
+ 
+Get-AzSubscriptions
+Get-AzResourceGroup
+ 
+ 
+Connect-AzureAD
+ 
+ 
+Install-Module Az.resources
+Import-Module Az.resources
+ 
+Get-AzSubscriptions
+Select-AzSubscription -SubscriptionId a8737f2e-8dfe-4a01-9844-94bb870302a4
+ 
+New-AzResourceGroupDeployment -ResourceGroupName <string> -Templatefile <string.json> -TemplateParameterfile <string.json>
+New-AzResourceGroupDeployment -ResourceGroupName rg-sandbox-testavd-east -Templatefile teststorageaccount.json
